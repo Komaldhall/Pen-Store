@@ -1,0 +1,70 @@
+<div class="modal fade" id="changeProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">{{prod.name|titlecase}}</h3>
+      </div>
+      <form (submit)="onSubmit()">
+        <div class="modal-body">
+          <br>
+          <div class="cov">
+            <div class="form-group row">
+                <label for="name" class="col-sm-4 col-form-label">Name</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="name" name="prod.name" [(ngModel)]="prod.name" required>
+                  <p *ngIf="prod.name.length < 3" class="error">Product must contain a Name.</p>
+                </div>
+            </div>
+            <div class="form-group row">
+              <label for="qty" class="col-sm-4 col-form-label">Quantity</label>
+              <div class="col-sm-6">
+                <input type="number" class="form-control" id="qty" name="prod.quantity" [(ngModel)]="prod.quantity" required>
+              </div>
+              <p *ngIf="prod.quantity <0" class="error">Product must contain a Quantity.</p>
+            </div>
+            <div class="form-group row">
+              <label for="price" class="col-sm-4 col-form-label">Price</label>
+              <div class="col-sm-6">
+                <input type="number" class="form-control" id="price" name="prod.price" [(ngModel)]="prod.price" required>
+                <p *ngIf="prod.price <0" class="error">Product must contain a Price.</p>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="desc" class="col-sm-4 col-form-label">Description</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="desc" name="prod.description" [(ngModel)]="prod.description" required>
+                <p *ngIf="prod.description.length < 3" class="error">Product must contain a Description.</p>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="image" class="col-sm-4 col-form-label">Image</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="image" name="prod.image" [(ngModel)]="prod.image" required>
+                <p *ngIf="prod.image.length <3" class="error">Product must contain an Image.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="row left">
+            <div class="col-sm-4">
+              <form (submit)="onReset()">
+                <button type="submit" class="btn btn-primary buton">Reset</button>
+              </form>
+            </div>
+            <div class="col-sm-4">
+              <form (submit)="onDelete()">
+                <button type="submit" class="btn btn-primary buton">Delete</button>
+              </form>
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button *ngIf="prod.name.length < 3 || prod.quantity <0 || prod.price <0 || prod.description.length < 3 || prod.image.length <3" type="submit" class="btn btn-success" disabled>Update</button>
+          <button *ngIf="prod.name.length >2 && prod.quantity >0 && prod.price >0 && prod.description.length >2 && prod.image.length >2" type="submit" class="btn btn-success">Update</button>
+        </div>
+      </form>
+      
+
+    </div>
+  </div>
+</div>

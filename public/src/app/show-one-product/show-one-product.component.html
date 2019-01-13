@@ -1,0 +1,14 @@
+<fieldset>
+    <h2>Product Details</h2>
+    <h4 *ngIf="display==0">To delete a product, the quantity must be 0.</h4>
+    <p>Name: {{product.name}}</p>
+    <p>Qty: {{product.quantity}}</p>
+    <p>Price: ${{product.price}}</p>
+    
+    <button [routerLink]="['/products']">Back</button>
+    |
+    <form (click)= "onDelete()">
+    <button *ngIf="display==1">Delete</button>
+    </form>
+    <button *ngIf="display==0" disabled>Delete</button>
+</fieldset>

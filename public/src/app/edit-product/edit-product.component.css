@@ -1,0 +1,19 @@
+.error{
+    color:red;
+    font-style: italic;
+}
+.buton{
+    background:none!important;
+    color:inherit;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    border-bottom:3px solid green; 
+    cursor: pointer;
+}
+.left{
+    float:left;
+}
+.cov{
+    margin-left:10%;
+}

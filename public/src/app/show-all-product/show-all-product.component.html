@@ -1,0 +1,18 @@
+<div class="row">
+  <router-outlet></router-outlet>
+  <div *ngFor="let p of products">
+    <div class="col-sm-4">
+      <p class="text-center"><strong>{{p.name|titlecase}}</strong></p><br>
+      <a href="#{{p.id}}" data-toggle="collapse">
+        <img src="{{p.image}}" alt="Pen" class="img-circle pen hvr-grow">
+      </a>
+      <div id="{{p.id}}" class="collapse">
+        <p>{{p.description | titlecase}}</p>
+        <p>Available : {{p.quantity}}</p>
+        <p>${{p.price}}</p>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#changeProduct" [routerLink]="[p.id]">Change</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
